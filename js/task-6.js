@@ -19,14 +19,16 @@ function destroyBoxes()
 function createBoxes(amount) {
     amount = parseInt(amount);
     if (amount >= 1 && amount <= 100) {
-        destroyBoxes();
+      destroyBoxes();
+      const divList = new DocumentFragment();
         for (let i = 1; i <= amount; i++){
             let div = document.createElement("div");
             div.style.backgroundColor = getRandomHexColor();
             div.style.width = 30 + (i * 10) + 'px';
             div.style.height = 30 + (i * 10) + 'px';
-            mainBoxes.append(div);
+            divList.append(div);
         }
+        mainBoxes.append(divList);
         amountInput.value = '';
     }
 }
